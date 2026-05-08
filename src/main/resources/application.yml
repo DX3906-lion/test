@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+storage:
+  csv:
+    path: data/api_cases.csv
