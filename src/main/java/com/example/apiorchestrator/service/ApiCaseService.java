@@ -2,17 +2,17 @@ package com.example.apiorchestrator.service;
 
 import com.example.apiorchestrator.domain.ApiCase;
 import com.example.apiorchestrator.dto.CreateCaseRequest;
-import com.example.apiorchestrator.repository.ApiCaseRepository;
+import com.example.apiorchestrator.repository.ApiCaseCsvRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ApiCaseService {
-    private final ApiCaseRepository apiCaseRepository;
+    private final ApiCaseCsvRepository repository;
 
-    public ApiCaseService(ApiCaseRepository apiCaseRepository) {
-        this.apiCaseRepository = apiCaseRepository;
+    public ApiCaseService(ApiCaseCsvRepository repository) {
+        this.repository = repository;
     }
 
     public ApiCase create(CreateCaseRequest req) {
@@ -20,10 +20,10 @@ public class ApiCaseService {
         apiCase.setName(req.getName());
         apiCase.setHarSource(req.getHarSource());
         apiCase.setFlowDefinition(req.getFlowDefinition());
-        return apiCaseRepository.save(apiCase);
+        return repository.save(apiCase);
     }
 
     public List<ApiCase> list() {
-        return apiCaseRepository.findAll();
+        return repository.findAll();
     }
 }

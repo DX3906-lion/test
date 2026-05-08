@@ -1,8 +1,0 @@
-CREATE TABLE IF NOT EXISTS api_case (
-  id BIGINT PRIMARY KEY AUTO_INCREMENT,
-  name VARCHAR(128) NOT NULL,
-  har_source LONGTEXT,
-  flow_definition LONGTEXT NOT NULL,
-  created_at DATETIME NOT NULL,
-  updated_at DATETIME NOT NULL
-);
